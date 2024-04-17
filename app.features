@@ -1,0 +1,110 @@
+Funcionalidade: Gerenciamento de Usuários
+
+	Contexto: Registro de Novo Usuário
+		Dado que um novo usuário queira se cadastrar com um e-mail único e senha válida
+		E ele ainda não possui uma conta registrada
+		Quando ele inserir um e-mail único e uma senha com 6 dígitos
+		Então ele deve ser registrado como um usuário comum com sucesso.
+
+	Contexto: Promoção de Usuário para Crítico
+		Dado que um usuário comum queira ser promovido para crítico
+		E ele já possui uma conta registrada
+		Quando um administrador alterar seu tipo para crítico
+		Então ele deve ser promovido com sucesso para crítico.
+
+	Contexto: Inativação de Conta por Usuário
+		Dado que um usuário esteja logado
+		E ele possui uma conta ativa no sistema
+		Quando ele inativar sua própria conta
+		Então sua conta deve ser inativada e ele não poderá mais acessar o sistema.
+
+	Contexto: Exclusão de Conta por Administrador
+		Dado que um administrador esteja logado
+		Quando ele excluir permanentemente a conta de um usuário
+		Então a conta do usuário deve ser removida completamente do sistema.
+
+	Contexto: Consulta de Filmes por Usuário Não Logado
+		Dado que um usuário não esteja logado
+		Quando ele consultar os filmes disponíveis no sistema
+		Então ele deve conseguir visualizar a lista de filmes cadastrados.
+
+	Contexto: Criação de Review de Filme
+		Dado que um usuário esteja logado
+		Quando ele criar uma review para um filme cadastrado
+		Então a review deve ser adicionada com sucesso ao filme.
+
+	Contexto: Atualização de Review de Filme
+		Dado que um usuário tenha criado uma review para um filme
+		E ele deseja atualizar sua revisão
+		Quando ele criar uma nova review para o mesmo filme
+		Então a review original deve ser atualizada com sucesso.
+
+	Contexto: Promoção de Usuário para Administrador
+		Dado que um usuário comum queira ser promovido para administrador
+		Quando um administrador alterar seu tipo para admin
+		Então ele deve ser promovido com sucesso para administrador.
+
+	Contexto: Tentativa de Promoção de Usuário sem Permissão
+		Dado que um usuário comum queira se promover para crítico ou admin
+		Quando ele tentar alterar seu próprio tipo de usuário
+		Então a promoção não deve ser permitida.
+
+	Contexto: Exclusão de Conta por Usuário
+		Dado que um usuário esteja logado
+		E ele deseja excluir permanentemente sua própria conta
+		Quando ele tentar excluir sua própria conta
+		Então a conta deve ser removida completamente do sistema.
+
+	Contexto: Tentativa de Exclusão de Conta por Usuário Não Autorizado
+		Dado que um usuário comum tente excluir a conta de outro usuário
+		Quando ele tentar excluir a conta de outro usuário
+		Então a exclusão não deve ser permitida.
+
+	Contexto: Consulta de Dados Pessoais por Usuário
+		Dado que um usuário esteja logado
+		E ele deseja consultar seus próprios dados pessoais
+		Quando ele consultar seus próprios dados pessoais
+		Então ele deve ser capaz de visualizar suas informações.
+
+	Contexto: Consulta de Dados Pessoais por Administrador
+		Dado que um administrador esteja logado
+		E ele deseja consultar os dados pessoais de outro usuário
+		Quando ele consultar os dados pessoais de outro usuário
+		Então ele deve ser capaz de visualizar as informações do usuário.
+
+	Contexto: Tentativa de Alteração de Tipo de Usuário por Usuário Comum
+		Dado que um usuário comum tente alterar o tipo de usuário de outro usuário
+		Quando ele tentar alterar o tipo de usuário de outro usuário
+		Então a alteração não deve ser permitida.
+
+	Contexto: Tentativa de Acesso a Dados Pessoais por Usuário Não Autorizado
+		Dado que um usuário não logado tente acessar dados pessoais de outro usuário
+		Quando ele tentar acessar os dados pessoais de outro usuário
+		Então o acesso não deve ser permitido.
+
+	Contexto: Cadastro de Novo Filme por Administrador
+		Dado que um administrador esteja logado
+		E ele deseja adicionar um novo filme ao sistema
+		Quando ele cadastrar um novo filme no sistema
+		Então o filme deve ser cadastrado com sucesso.
+
+	Contexto: Exclusão de Filme por Administrador
+		Dado que um administrador esteja logado
+		E ele deseja remover um filme do sistema
+		Quando ele excluir um filme do sistema
+		Então o filme deve ser removido completamente do sistema.
+
+	Contexto: Consulta de Filme
+		Dado que um usuário queira visualizar detalhes de um filme específico
+		Quando ele selecionar um filme da lista de filmes disponíveis
+		Então ele deve ver todas as avaliações já feitas para o filme, incluindo os dados do usuário que as criou.
+
+	Contexto: Tentativa de Cadastro de Filme por Usuário Não Autorizado
+		Dado que um usuário comum tente cadastrar um novo filme
+		Quando ele tentar cadastrar um novo filme no sistema
+		Então o cadastro do filme não deve ser permitido.
+
+	Contexto: Tentativa de Exclusão de Filme por Usuário Não Autorizado
+		Dado que um usuário comum tente excluir um filme
+		Quando ele tentar excluir um filme do sistema
+		Então a exclusão do filme não deve ser permitida.
